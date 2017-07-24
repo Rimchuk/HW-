@@ -80,7 +80,7 @@ namespace HW3
                             temp = Console.ReadLine();
                             string name;
 
-                            Regex regex = new Regex( @"[A-ZА-Я]*",RegexOptions.Compiled | RegexOptions.IgnoreCase);
+                            Regex regex = new Regex(@"[A-ZА-Я]{1}[a-zа-я]*");//( @"[A-ZА-Я]*",RegexOptions.Compiled | RegexOptions.IgnoreCase);
                             Match match = regex.Match(temp);
                             if (match.Success)
                             {
