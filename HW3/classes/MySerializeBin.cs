@@ -10,7 +10,7 @@ namespace HW3.classes
 {
     public class MySerializeBin : ISerialize
     {
-        public void SerializeList(List<IPerson> list)
+        public void SerializeList(List<Person> list)
         {
             BinaryFormatter bf = new BinaryFormatter();
             using (FileStream fs = new FileStream("worker.dat", FileMode.OpenOrCreate))
@@ -19,21 +19,21 @@ namespace HW3.classes
             }
         }
 
-        public List<IPerson> DeserializeList()
+        public List<Person> DeserializeList()
         {
             if (File.Exists("worker.dat"))
             {
                 BinaryFormatter bf = new BinaryFormatter();
-                List<IPerson> myWorker;
+                List<Person> myWorker;
                 using (FileStream fs = new FileStream("worker.dat", FileMode.OpenOrCreate))
                 {
-                    myWorker = (List<IPerson>)bf.Deserialize(fs);
+                    myWorker = (List<Person>)bf.Deserialize(fs);
                 }
                 return myWorker;
             }
             else
             {
-                return new List<IPerson>();
+                return new List<Person>();
             }
         }
     }

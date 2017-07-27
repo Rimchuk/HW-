@@ -10,30 +10,30 @@ namespace HW3.classes
 {
     public class MySerializeXml : ISerialize
     {
-        public void SerializeList(List<IPerson> list)
+        public void SerializeList(List<Person> list)
         {
-            XmlSerializer xs = new XmlSerializer(typeof(List<IPerson>));
+            XmlSerializer xs = new XmlSerializer(typeof(List<Person>));
             using (FileStream fs = new FileStream("worker.xml", FileMode.OpenOrCreate))
             {
                 xs.Serialize(fs, list);
             }
         }
 
-        public List<IPerson> DeserializeList()
+        public List<Person> DeserializeList()
         {
             if (File.Exists("worker.xml"))
             {
-                XmlSerializer xs = new XmlSerializer(typeof(List<IPerson>));
-                List<IPerson> myWorker;
+                XmlSerializer xs = new XmlSerializer(typeof(List<Person>));
+                List<Person> myWorker;
                 using (FileStream fs = new FileStream("worker.xml", FileMode.OpenOrCreate))
                 {
-                    myWorker = (List<IPerson>)xs.Deserialize(fs);
+                    myWorker = (List<Person>)xs.Deserialize(fs);
                 }
                 return myWorker;
             }
             else
             {
-                return new List<IPerson>();
+                return new List<Person>();
             }
         }
     }

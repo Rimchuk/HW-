@@ -8,7 +8,7 @@ namespace HW3.interfaces
 {
     public interface ISerialize
     {
-        void SerializeList(List<IPerson> list);
-         List<IPerson> DeserializeList();
+        void SerializeList(List<Person> list);
+         List<Person> DeserializeList();
     }
 }

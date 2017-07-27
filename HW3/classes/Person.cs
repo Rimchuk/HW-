@@ -6,10 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace HW3.classes
 {
-    
+    [XmlInclude(typeof(Worker))]
+
     public abstract class Person: IPerson
     {
         public int ID { get; set; }

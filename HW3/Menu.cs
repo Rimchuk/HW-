@@ -11,7 +11,7 @@ namespace HW3
 {
     public class Menu
     {
-        List<interfaces.IPerson> workerList;
+        List<Person> workerList;
         ChoiseOfSerializable ch = new ChoiseOfSerializable();
         ISerialize mySerializer;
 
@@ -26,7 +26,7 @@ namespace HW3
                 mySerializer = new MySerializeBin();
             }
 
-            workerList = (List<interfaces.IPerson>)mySerializer.DeserializeList();
+                 workerList = (List<Person>)mySerializer.DeserializeList();
             Console.Write("Данные с файла были успешно загружены!\nНажмите любую кнопку для продолжения...");
             Console.ReadLine();
 
@@ -95,7 +95,7 @@ namespace HW3
                             Console.Write("Введите фамилия: ");
                             temp = Console.ReadLine();
                             string surname;
-                            
+
                             if (match.Success)
                             {
                                 surname = temp;
@@ -142,9 +142,10 @@ namespace HW3
                                 Error();
                                 continue;
                             }
-                            workerList.Add(new Worker(id, name, surname, age,   phoneNumber, eMail));
+                            workerList.Add(new Worker(id, name, surname, age, phoneNumber, eMail));
                             Console.WriteLine("Работник успешно добавлен в базу данных!");
                             break;
+
                         case "see":
                             foreach (var w in workerList)
                             {
@@ -152,12 +153,18 @@ namespace HW3
                             }
                             Console.ReadLine();
                             break;
+
                         case "exit":
-                            mySerializer.SerializeList(workerList);
+
+                                                     
+                                mySerializer.SerializeList(workerList);
+                                                                                  
                             return;
+
                         case "help":
                             Help();
                             break;
+
                         default:
                             Help();
                             break;
@@ -175,7 +182,7 @@ namespace HW3
                                 continue;
                             }
                             else
-                            { 
+                            {
                                 Int32.TryParse(commands[1], out id);
                                 for (int i = 0; i < workerList.Count; i++)
                                 {
